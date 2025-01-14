@@ -7,6 +7,9 @@ import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Checks behavior of the {@link org.kiwiproject.consul.util.failover.strategy.BlacklistingConsulFailoverStrategy}.
+ */
 @SuppressWarnings("all")
 public class CheckConsulBlacklisting {
     public static void main(String[] args) {
@@ -20,7 +23,7 @@ public class CheckConsulBlacklisting {
 
         var consul = Consul.builder()
                 .withPing(false)
-                .withMultipleHostAndPort(targets, delayMillis)
+                .withMultipleHostAndPort(targets, delayMillis)  // uses BlacklistingConsulFailoverStrategy
                 .build();
 
         var maxAttempts = 10;

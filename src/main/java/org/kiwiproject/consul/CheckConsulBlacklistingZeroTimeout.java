@@ -7,6 +7,10 @@ import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Checks behavior of the {@link org.kiwiproject.consul.util.failover.strategy.BlacklistingConsulFailoverStrategy}
+ * when no timeout...it should fail.
+ */
 @SuppressWarnings("all")
 public class CheckConsulBlacklistingZeroTimeout {
 
