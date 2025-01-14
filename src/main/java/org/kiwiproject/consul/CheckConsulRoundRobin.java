@@ -10,6 +10,9 @@ import java.time.Instant;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Checks behavior of the {@link RoundRobinConsulFailoverStrategy} using a single thread.
+ */
 @SuppressWarnings("all")
 public class CheckConsulRoundRobin {
     public static void main(String[] args) {

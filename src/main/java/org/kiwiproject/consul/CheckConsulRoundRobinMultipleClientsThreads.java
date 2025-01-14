@@ -10,6 +10,10 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.random.RandomGenerator;
 
+/**
+ * Checks behavior of the {@link RoundRobinConsulFailoverStrategy} with multiple threads using
+ * raw threads and a {@link CountDownLatch}.
+ */
 @SuppressWarnings("all")
 public class CheckConsulRoundRobinMultipleClientsThreads {
     public static void main(String[] args) throws InterruptedException {

@@ -10,6 +10,10 @@ import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.Executors;
 import java.util.random.RandomGenerator;
 
+/**
+ * Checks behavior of the {@link RoundRobinConsulFailoverStrategy} with multiple threads using a
+ * fixed-thread pool and a {@link CompletionService}.
+ */
 @SuppressWarnings("all")
 public class CheckConsulRoundRobinMultipleClientsExecutor {
     public static void main(String[] args) throws InterruptedException {
@@ -55,6 +59,6 @@ public class CheckConsulRoundRobinMultipleClientsExecutor {
             completionService.take();
         }
 
-        threadPool.shutdown();
+        threadPool.shutdown();  // shutdown, or else it hangs forever...
     }
 }

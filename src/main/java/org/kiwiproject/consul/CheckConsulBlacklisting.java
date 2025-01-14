@@ -8,7 +8,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Checks behavior of the {@link org.kiwiproject.consul.util.failover.strategy.BlacklistingConsulFailoverStrategy}.
+ * Checks behavior of the {@link org.kiwiproject.consul.util.failover.strategy.BlacklistingConsulFailoverStrategy}
+ * using a single thread.
  */
 @SuppressWarnings("all")
 public class CheckConsulBlacklisting {
