@@ -5,12 +5,34 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 import java.time.Instant;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Common logic to test failover behavior.
+ * <p>
+ * It attempts to call {@link KeyValueClient#getValueAsString(String)} repeatedly.
+ */
 public class CheckConsul {
 
+    /**
+     * Intended for single-threaded tests.
+     *
+     * @param consul the Consul instance to use
+     * @param maxAttempts the number of attempts to make
+     * @param delayMillisBetweenAttempts the amount of time in millis to wait between each separate attempt
+     */
     public static void check(Consul consul, int maxAttempts, int delayMillisBetweenAttempts) {
         check("", consul, maxAttempts, delayMillisBetweenAttempts);
     }
 
+    /**
+     * Intended for testing with multiple threads.
+     * <p>
+     * The output is prefixed by the {@code description}.
+     *
+     * @param description a unique description, for example the thread name
+     * @param consul the Consul instance to use
+     * @param maxAttempts the number of attempts to make
+     * @param delayMillisBetweenAttempts the amount of time in millis to wait between each separate attempt
+     */
     public static void check(String description, Consul consul, int maxAttempts, int delayMillisBetweenAttempts) {
         var client = consul.keyValueClient();
 
