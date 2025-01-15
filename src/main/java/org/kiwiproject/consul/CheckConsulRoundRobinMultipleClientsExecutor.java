@@ -51,7 +51,7 @@ public class CheckConsulRoundRobinMultipleClientsExecutor {
             });
 
             // introduce a bit of randomness when next client starts
-            Thread.sleep(RandomGenerator.getDefault().nextInt(50, 150));
+            Thread.sleep(RandomGenerator.getDefault().nextInt(25, 50));
         }
 
         System.out.println("Wait for all readers to finish");
