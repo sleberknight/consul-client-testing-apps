@@ -57,7 +57,8 @@ public class CheckConsul {
 
             // sleep a bit if not on last attempt...
             if (i < lastAttemptIndex) {
-                System.out.printf("%sSleeping after attempt #%d%n", prefix, attemptNumber);
+                System.out.printf("%sSleeping %d milliseconds after attempt #%d%n",
+                        prefix, delayMillisBetweenAttempts, attemptNumber);
                 try {
                     Thread.sleep(delayMillisBetweenAttempts);
                 } catch (InterruptedException ignored) {
