@@ -23,7 +23,7 @@ public class CheckConsulRoundRobinMultipleClientsThreads {
                 HostAndPort.fromString("c.foo.bar.baz:8500")
         );
 
-        var delay = Duration.ofMillis(25L);
+        var delay = Duration.ofMillis(0L);
         var strategy = new RoundRobinConsulFailoverStrategy(targets, delay);
 
         var consul = Consul.builder()
@@ -44,7 +44,7 @@ public class CheckConsulRoundRobinMultipleClientsThreads {
             new Thread(() -> {
                 System.out.println("Starting reader " + readerNum);
                 var threadName = Thread.currentThread().getName();
-                var description = String.format("reader %d [%s]", readerNum, threadName);
+                var description = String.format("reader %d, %s", readerNum, threadName);
                 CheckConsul.check(description, consul, maxAttempts, delayMillisBetweenAttempts);
                 latch.countDown();
             }).start();

@@ -45,7 +45,7 @@ public class CheckConsulRoundRobinMultipleClientsExecutor {
             completionService.submit(() -> {
                 System.out.println("Starting reader " + readerNum);
                 var threadName = Thread.currentThread().getName();
-                var description = String.format("reader %d [%s]", readerNum, threadName);
+                var description = String.format("reader %d, %s", readerNum, threadName);
                 CheckConsul.check(description, consul, maxAttempts, delayMillisBetweenAttempts);
                 return null;
             });
