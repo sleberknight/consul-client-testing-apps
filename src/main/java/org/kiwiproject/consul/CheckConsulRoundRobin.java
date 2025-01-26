@@ -1,14 +1,10 @@
 package org.kiwiproject.consul;
 
 import com.google.common.net.HostAndPort;
-
-import org.kiwiproject.consul.util.failover.strategy.ConsulFailoverStrategy;
 import org.kiwiproject.consul.util.failover.strategy.RoundRobinConsulFailoverStrategy;
 
 import java.time.Duration;
-import java.time.Instant;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Checks behavior of the {@link RoundRobinConsulFailoverStrategy} using a single thread.

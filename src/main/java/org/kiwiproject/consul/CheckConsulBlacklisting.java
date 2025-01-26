@@ -2,9 +2,6 @@ package org.kiwiproject.consul;
 
 import com.google.common.net.HostAndPort;
 
-import java.time.Duration;
-import java.time.Instant;
-import java.util.Arrays;
 import java.util.List;
 
 /**
