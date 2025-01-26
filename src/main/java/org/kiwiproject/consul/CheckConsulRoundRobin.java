@@ -15,6 +15,9 @@ public class CheckConsulRoundRobin {
         var targets = List.of(
                 HostAndPort.fromString("a.foo.bar.baz:8500"),
                 HostAndPort.fromString("b.foo.bar.baz:8500"),
+                HostAndPort.fromString("c.foo.bar.baz:8500"),
+                HostAndPort.fromString("a.foo.bar.baz:8500"),
+                HostAndPort.fromString("b.foo.bar.baz:8500"),
                 HostAndPort.fromString("c.foo.bar.baz:8500")
         );
 
