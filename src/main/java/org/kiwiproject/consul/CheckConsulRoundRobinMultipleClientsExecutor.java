@@ -1,11 +1,11 @@
 package org.kiwiproject.consul;
 
 import com.google.common.net.HostAndPort;
-
 import org.kiwiproject.consul.util.failover.strategy.RoundRobinConsulFailoverStrategy;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.CompletionService;
 import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.Executors;
 import java.util.random.RandomGenerator;

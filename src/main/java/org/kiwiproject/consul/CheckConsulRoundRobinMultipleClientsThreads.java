@@ -1,7 +1,6 @@
 package org.kiwiproject.consul;
 
 import com.google.common.net.HostAndPort;
-
 import org.kiwiproject.consul.util.failover.strategy.RoundRobinConsulFailoverStrategy;
 
 import java.time.Duration;
