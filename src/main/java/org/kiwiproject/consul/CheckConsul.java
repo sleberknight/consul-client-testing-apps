@@ -2,6 +2,8 @@ package org.kiwiproject.consul;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
+import lombok.experimental.UtilityClass;
+
 import java.time.Instant;
 import java.util.concurrent.TimeUnit;
 
@@ -10,6 +12,8 @@ import java.util.concurrent.TimeUnit;
  * <p>
  * It attempts to call {@link KeyValueClient#getValueAsString(String)} repeatedly.
  */
+@UtilityClass
+@SuppressWarnings("java:S106")
 public class CheckConsul {
 
     /**
@@ -17,7 +21,7 @@ public class CheckConsul {
      *
      * @param consul the Consul instance to use
      * @param maxAttempts the number of attempts to make
-     * @param delayMillisBetweenAttempts the amount of time in millis to wait between each separate attempt
+     * @param delayMillisBetweenAttempts the amount of time in millis to wait between each attempt
      */
     public static void check(Consul consul, int maxAttempts, int delayMillisBetweenAttempts) {
         check("", consul, maxAttempts, delayMillisBetweenAttempts);
@@ -28,10 +32,10 @@ public class CheckConsul {
      * <p>
      * The output is prefixed by the {@code description}.
      *
-     * @param description a unique description, for example the thread name
+     * @param description a unique description, for example, the thread name
      * @param consul the Consul instance to use
      * @param maxAttempts the number of attempts to make
-     * @param delayMillisBetweenAttempts the amount of time in millis to wait between each separate attempt
+     * @param delayMillisBetweenAttempts the amount of time in millis to wait between each attempt
      */
     public static void check(String description, Consul consul, int maxAttempts, int delayMillisBetweenAttempts) {
         var client = consul.keyValueClient();
@@ -62,6 +66,7 @@ public class CheckConsul {
                 try {
                     Thread.sleep(delayMillisBetweenAttempts);
                 } catch (InterruptedException ignored) {
+                    Thread.currentThread().interrupt();
                     System.out.printf("%sWARN: Interrupted while sleeping!%n", prefix);
                 }
             }
